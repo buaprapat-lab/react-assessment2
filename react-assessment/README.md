@@ -47,6 +47,25 @@ pages/
 Home.jsx
 สร้าง State เก็บข้อมูลสมาชิก (Mock data ไว้ก่อน) และ State สำหรับเช็คว่าตอนนี้เป็น User OR Admin
 
+Coding: 1. State set up
+members (array) เก้บข้อมูลสมาชิกที่ดึงจาก API
+sector (string) เก็ยสถานะปัจจุบัน user / admin 2. Effect Hook
+useEffect เรียก func getData 3. API - CURD
+GET (getData): fetch -> res.json() -> setMembers(data) ดึงมาโชว์
+POST (createData): fetch -> ส่ง body JSON -> ถ้าาำหร็จเรียก getData
+DELETE (deleteData): fetch (URL + /id) -> Method: DELETE -> ถ้าสำเร็จเรียก getData()
+
 components/
 MemberTable.jsx
 เอา data จาก Home.jsx มาแสดงผล
+
+Coding: 1. Props รับ { members, isAdmin, onDelete}
+Mapping: members.map((item) => ..) วนลูปสร้างแถวในตาราง
+Conditional rendering:
+{isAdmin && <button onClick={()=>
+onDelete(item.id)}>Delete</button>}
+
+components/
+AdminForm.jsx
+1.Local State: เก็บค่าจาก input 3 name, lastName, position
+Submit Handle: เมื่อกด Save -> เรียก onCreate(newData) ที่ส่งมาจาก Props เพื่อยิง API
