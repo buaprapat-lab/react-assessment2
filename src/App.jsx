@@ -1,12 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Owner from "./pages/Owner";
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-[#F5F5F5] fonts-sans">
+      <div className="min-h-screen bg-[#F5F5F5] font-sans">
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
